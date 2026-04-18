@@ -1,0 +1,10 @@
+.next
+node_modules
+.netlify
+.npm-cache
+.DS_Store
+coverage
+dist
+*.log
+data/profile.override.json
+data/admin-auth.json

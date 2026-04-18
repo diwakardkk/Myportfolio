@@ -1,0 +1,104 @@
+import { BookOpenText, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+
+import type { ProfileData } from '@/data/profile';
+import { Reveal } from '@/components/ui/reveal';
+import { SectionHeading } from '@/components/ui/section-heading';
+
+interface ContactSectionProps {
+  profile: ProfileData;
+}
+
+export function ContactSection({ profile }: ContactSectionProps) {
+  return (
+    <section id="contact" className="relative py-24 sm:py-28">
+      <div className="shell max-w-5xl">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Let's Connect"
+            title="Open to postdoctoral conversations and research collaborations"
+            description="Reach out for postdoctoral opportunities, collaborations in trustworthy healthcare AI, or conversations around interpretable clinical systems."
+          />
+
+          <div className="mt-8 space-y-4">
+            <div className="premium-card rounded-[1.75rem] p-5">
+              <div className="flex items-center gap-3 text-slate-200">
+                <Mail className="h-4 w-4 text-cyan" />
+                <a href={`mailto:${profile.contact.email}`} className="focus-ring rounded-md text-sm hover:text-white">
+                  {profile.contact.email}
+                </a>
+              </div>
+            </div>
+            <div className="premium-card rounded-[1.75rem] p-5">
+              <div className="flex items-center gap-3 text-slate-200">
+                <Phone className="h-4 w-4 text-cyan" />
+                <a href={`tel:${profile.contact.phone.replace(/\s+/g, '')}`} className="focus-ring rounded-md text-sm hover:text-white">
+                  {profile.contact.phone}
+                </a>
+              </div>
+            </div>
+            <div className="premium-card rounded-[1.75rem] p-5">
+              <div className="flex items-center gap-3 text-slate-200">
+                <MapPin className="h-4 w-4 text-cyan" />
+                <span className="text-sm">{profile.contact.location}</span>
+              </div>
+            </div>
+            <div className="premium-card rounded-[1.75rem] p-5">
+              <div className="flex items-center gap-3 text-slate-200">
+                <Linkedin className="h-4 w-4 text-cyan" />
+                <a href={profile.contact.linkedin} target="_blank" rel="noreferrer" className="focus-ring rounded-md text-sm hover:text-white">
+                  linkedin.com/in/diwakarpro
+                </a>
+              </div>
+            </div>
+            <div className="premium-card rounded-[1.75rem] p-5">
+              <div className="flex items-center gap-3 text-slate-200">
+                <BookOpenText className="h-4 w-4 text-cyan" />
+                <a href={profile.contact.scholarUrl} target="_blank" rel="noreferrer" className="focus-ring rounded-md text-sm hover:text-white">
+                  Google Scholar
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={`mailto:${profile.contact.email}`}
+              className="focus-ring inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan to-electric px-5 py-3 text-sm font-semibold text-slate-950"
+            >
+              Email Me
+              <Mail className="h-4 w-4" />
+            </a>
+            <a
+              href={profile.contact.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="focus-ring inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white"
+            >
+              LinkedIn
+              <Linkedin className="h-4 w-4" />
+            </a>
+            <a
+              href={profile.contact.scholarUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="focus-ring inline-flex items-center gap-2 rounded-full border border-cyan/25 bg-cyan/10 px-5 py-3 text-sm font-semibold text-cyan"
+            >
+              Google Scholar
+              <BookOpenText className="h-4 w-4" />
+            </a>
+          </div>
+          <div className="mt-10 rounded-[2rem] border border-[#fffffa]/10 bg-[#fffffa]/[0.05] px-6 py-6 text-sm leading-7 text-[#fffffa]/76 shadow-[0_20px_60px_rgba(34,75,195,0.16)]">
+            <p>
+              For research discussions, postdoctoral roles, and collaboration opportunities, email directly at{' '}
+              <a href={`mailto:${profile.contact.email}`} className="focus-ring font-medium text-cyan hover:text-white">
+                {profile.contact.email}
+              </a>
+              .
+            </p>
+            <p className="mt-3">{profile.contact.formNotice}</p>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}

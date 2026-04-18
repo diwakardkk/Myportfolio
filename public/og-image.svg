@@ -1,0 +1,11 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#050816"/>
+  <circle cx="926" cy="146" r="180" fill="#57D7FF" fill-opacity="0.14"/>
+  <circle cx="358" cy="504" r="220" fill="#8F80FF" fill-opacity="0.12"/>
+  <rect x="70" y="70" width="1060" height="490" rx="40" fill="#09111F" stroke="#263969"/>
+  <path d="M112 122H1088" stroke="#1B2D53" stroke-width="2"/>
+  <text x="112" y="220" fill="#57D7FF" font-family="Arial, sans-serif" font-size="26" letter-spacing="4">TRUSTWORTHY AI FOR HEALTHCARE</text>
+  <text x="112" y="320" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="88" font-weight="700">Diwakar</text>
+  <text x="112" y="394" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="30">Medical Imaging, Explainable AI, Uncertainty-Aware ML, Conversational AI</text>
+  <text x="112" y="474" fill="#94A3B8" font-family="Arial, sans-serif" font-size="28">Postdoctoral research portfolio for high-impact healthcare AI labs.</text>
+</svg>
