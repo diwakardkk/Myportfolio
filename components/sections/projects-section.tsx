@@ -12,8 +12,8 @@ const projectIcons = [BrainCircuit, ShieldHalf, Stethoscope, ArrowUpRight];
 
 export function ProjectsSection({ profile }: ProjectsSectionProps) {
   return (
-    <section id="projects" className="relative py-24 sm:py-28">
-      <div className="shell space-y-12">
+    <section id="projects" className="relative py-14 sm:py-16">
+      <div className="shell space-y-8">
         <Reveal>
           <SectionHeading
             eyebrow="Featured Work"

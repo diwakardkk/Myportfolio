@@ -10,7 +10,7 @@ interface PostdocSectionProps {
 
 export function PostdocSection({ profile }: PostdocSectionProps) {
   return (
-    <section className="relative py-24 sm:py-28">
+    <section className="relative py-14 sm:py-16">
       <div className="shell">
         <Reveal className="overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(9,17,31,0.92),rgba(12,24,49,0.88))] p-8 shadow-card md:p-10">
           <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">

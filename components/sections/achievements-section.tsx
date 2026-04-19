@@ -12,8 +12,8 @@ const achievementIcons = [ScrollText, Award, BadgeCheck, Stars, Rocket];
 
 export function AchievementsSection({ profile }: AchievementsSectionProps) {
   return (
-    <section id="achievements" className="relative py-24 sm:py-28">
-      <div className="shell space-y-12">
+    <section id="achievements" className="relative py-14 sm:py-16">
+      <div className="shell space-y-8">
         <Reveal>
           <SectionHeading
             eyebrow="Achievements"

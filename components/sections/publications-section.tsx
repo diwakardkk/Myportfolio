@@ -1,4 +1,4 @@
-import { ArrowUpRight, BookText, Link2 } from 'lucide-react';
+import { ArrowUpRight, BookText } from 'lucide-react';
 
 import type { ProfileData } from '@/data/profile';
 import { Reveal } from '@/components/ui/reveal';
@@ -10,21 +10,21 @@ interface PublicationsSectionProps {
 
 export function PublicationsSection({ profile }: PublicationsSectionProps) {
   return (
-    <section id="publications" className="relative py-20 sm:py-24">
-      <div className="shell space-y-10">
-        <Reveal className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+    <section id="publications" className="relative scroll-mt-28 py-14 sm:scroll-mt-32 sm:py-16">
+      <div className="shell space-y-8">
+        <Reveal className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeading
             eyebrow="Publications"
-            title="Resume-verified publication record"
-            description="A compact bibliography drawn from the CV, with verified DOI links where available and clear status labels for communicated manuscripts."
+            title="List of publications"
+            description=""
           />
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href={profile.contact.scholarUrl}
               target="_blank"
               rel="noreferrer"
-              className="focus-ring inline-flex items-center gap-2 rounded-full border border-cyan/30 bg-cyan/10 px-5 py-3 text-sm text-cyan transition hover:border-cyan/50 hover:text-white"
+              className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded-full border border-cyan/30 bg-cyan/10 px-5 py-3 text-sm text-cyan transition hover:border-cyan/50 hover:text-white sm:w-auto"
             >
               Google Scholar
               <ArrowUpRight className="h-4 w-4" />
@@ -32,75 +32,77 @@ export function PublicationsSection({ profile }: PublicationsSectionProps) {
           </div>
         </Reveal>
 
-        <Reveal delay={0.06}>
-          <div className="glass-panel overflow-hidden rounded-[1.75rem] border-white/10">
-            {profile.publications.map((publication, index) => (
-              <article
-                key={publication.title}
-                className="grid gap-4 border-b border-white/10 px-5 py-5 last:border-b-0 sm:px-6 lg:grid-cols-[110px_minmax(0,1fr)_240px] lg:gap-6"
-              >
-                <div className="flex flex-wrap items-start gap-2 lg:flex-col">
-                  <span className="rounded-full border border-electric/30 bg-electric/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.24em] text-electric">
+        <div className="glass-panel overflow-visible rounded-[1.75rem] border-white/10 sm:overflow-hidden">
+          {profile.publications.map((publication) => (
+            <article
+              key={publication.title}
+              className="border-b border-white/10 px-4 py-4 last:border-b-0 sm:px-6 sm:py-5"
+            >
+              <div className="min-w-0 space-y-3">
+                <div className="flex flex-wrap items-start gap-2">
+                  <span className="rounded-full border border-electric/30 bg-electric/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-electric sm:tracking-[0.2em]">
                     {publication.year}
                   </span>
                   {publication.tag ? (
-                    <span className="rounded-full border border-cyan/30 bg-cyan/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-cyan">
+                    <span className="rounded-full border border-cyan/30 bg-cyan/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-cyan sm:tracking-[0.2em]">
                       {publication.tag}
                     </span>
                   ) : null}
                   {publication.status ? (
-                    <span className="rounded-full border border-violet/30 bg-violet/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-violet">
+                    <span className="rounded-full border border-violet/30 bg-violet/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-violet sm:tracking-[0.2em]">
                       {publication.status}
                     </span>
                   ) : null}
                 </div>
 
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold leading-7 text-white sm:text-xl">{publication.title}</h3>
-
-                  <div className="flex flex-wrap items-center gap-2 text-sm text-slate-300">
-                    <BookText className="h-4 w-4 text-cyan" />
-                    <span className="font-medium text-white/90">{publication.journal}</span>
-                    {publication.publisher ? <span className="text-slate-500">• {publication.publisher}</span> : null}
-                  </div>
-
-                  {publication.citation ? <p className="text-sm text-slate-400">{publication.citation}</p> : null}
-
-                  <p className="text-sm leading-7 text-slate-300">{publication.highlight}</p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {publication.categoryTags.map((tag) => (
-                      <span key={tag} className="rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-slate-400">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.22em] text-cyan">
-                    <Link2 className="h-4 w-4" />
-                    {publication.doiLabel || 'DOI'}
-                  </div>
-
+                <h3 className="text-base font-semibold leading-7 text-white sm:text-lg">
                   {publication.doiUrl ? (
                     <a
                       href={publication.doiUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="focus-ring mt-3 inline-flex items-start gap-2 text-sm leading-6 text-cyan transition hover:text-white"
+                      className="focus-ring inline-flex items-start gap-2 transition hover:text-cyan"
                     >
-                      <span className="break-all">{publication.doiUrl.replace('https://doi.org/', '')}</span>
+                      <span>{publication.title}</span>
                       <ArrowUpRight className="mt-1 h-4 w-4 shrink-0" />
                     </a>
                   ) : (
-                    <p className="mt-3 text-sm leading-6 text-slate-400">DOI not assigned yet.</p>
+                    publication.title
                   )}
+                </h3>
+
+                <div className="flex flex-wrap items-center gap-2 text-sm leading-6 text-slate-300">
+                  <BookText className="h-4 w-4 shrink-0 text-cyan" />
+                  <span className="font-medium text-white/90">{publication.journal}</span>
+                  {publication.publisher ? <span className="text-slate-500">• {publication.publisher}</span> : null}
                 </div>
-              </article>
-            ))}
-          </div>
-        </Reveal>
+
+                {publication.citation ? <p className="break-words text-sm leading-6 text-slate-400">{publication.citation}</p> : null}
+
+                <p className="text-sm leading-6 text-slate-300">{publication.highlight}</p>
+
+                {publication.doiUrl ? (
+                  <a
+                    href={publication.doiUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="focus-ring inline-flex max-w-full items-start gap-2 text-xs text-cyan transition hover:text-white"
+                  >
+                    <span className="break-all">{publication.doiUrl}</span>
+                  </a>
+                ) : null}
+
+                <div className="flex flex-wrap gap-2">
+                  {publication.categoryTags.map((tag) => (
+                    <span key={tag} className="rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.16em] text-slate-400 sm:tracking-[0.22em]">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -37,6 +37,12 @@ export interface ProfileData {
     summary: string;
     supportingText: string;
     statusCard: {
+      previousQualifications: Array<{
+        degree: string;
+        institution: string;
+        year: string;
+      }>;
+      session: string;
       degree: string;
       institution: string;
       status: string;
@@ -164,6 +170,19 @@ export const profile: ProfileData = {
     supportingText:
       'My research interests include interpretable representation learning, explainable AI, uncertainty-aware modeling, calibration, selective prediction, conformal prediction, data-efficient learning, self-supervised learning, generative AI, and deployable clinical AI workflows.',
     statusCard: {
+      previousQualifications: [
+        {
+          degree: 'M.Sc., Computer Science',
+          institution: 'University of Allahabad, U.P., India',
+          year: '2016',
+        },
+        {
+          degree: 'Bachelor of Computer Applications (BCA)',
+          institution: 'University of Allahabad, U.P., India',
+          year: '2014',
+        },
+      ],
+      session: '2020-2026',
       degree: 'PhD in Computer Science',
       institution: 'Babasaheb Bhimrao Ambedkar University, Lucknow, India',
       status: 'Thesis Submitted',

@@ -18,7 +18,7 @@ export function Footer({ profile }: FooterProps) {
   return (
     <footer className="relative z-10 border-t border-electric/15 bg-[linear-gradient(180deg,rgba(34,75,195,0.12),rgba(255,255,250,0.04))]">
       <div className="shell flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between">
-        <div className="flex w-full flex-col items-start gap-4 rounded-[1.75rem] border border-[#fffffa]/10 bg-[#fffffa]/[0.05] px-4 py-4 shadow-[0_20px_60px_rgba(34,75,195,0.18)] sm:flex-row sm:items-center md:w-auto">
+        <div className="flex w-full flex-col items-start gap-4 sm:flex-row sm:items-center md:w-auto">
           <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border border-[#fffffa]/15">
             <Image
               src={profile.personalInfo.profileImageUrl}

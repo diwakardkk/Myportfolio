@@ -26,8 +26,8 @@ const iconMap: Record<ResearchFocusIcon, typeof ScanSearch> = {
 
 export function ResearchSection({ profile }: ResearchSectionProps) {
   return (
-    <section id="research" className="relative py-24 sm:py-28">
-      <div className="shell space-y-12">
+    <section id="research" className="relative py-14 sm:py-16">
+      <div className="shell space-y-8">
         <Reveal>
           <SectionHeading
             eyebrow="Research Focus"

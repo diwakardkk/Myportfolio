@@ -10,7 +10,7 @@ interface ContactSectionProps {
 
 export function ContactSection({ profile }: ContactSectionProps) {
   return (
-    <section id="contact" className="relative py-24 sm:py-28">
+    <section id="contact" className="relative py-14 sm:py-16">
       <div className="shell max-w-5xl">
         <Reveal>
           <SectionHeading
@@ -87,7 +87,7 @@ export function ContactSection({ profile }: ContactSectionProps) {
               <BookOpenText className="h-4 w-4" />
             </a>
           </div>
-          <div className="mt-10 rounded-[2rem] border border-[#fffffa]/10 bg-[#fffffa]/[0.05] px-5 py-6 text-sm leading-7 text-[#fffffa]/76 shadow-[0_20px_60px_rgba(34,75,195,0.16)] sm:px-6">
+          <div className="mt-10 px-1 text-sm leading-7 text-[#fffffa]/76">
             <p>
               For research discussions, postdoctoral roles, and collaboration opportunities, email directly at{' '}
               <a href={`mailto:${profile.contact.email}`} className="focus-ring break-all font-medium text-cyan hover:text-white">
@@ -95,7 +95,6 @@ export function ContactSection({ profile }: ContactSectionProps) {
               </a>
               .
             </p>
-            <p className="mt-3">{profile.contact.formNotice}</p>
           </div>
         </Reveal>
       </div>

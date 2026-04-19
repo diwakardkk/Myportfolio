@@ -17,8 +17,8 @@ const skillGroups: Array<{
 
 export function SkillsSection({ profile }: SkillsSectionProps) {
   return (
-    <section id="skills" className="relative py-24 sm:py-28">
-      <div className="shell space-y-12">
+    <section id="skills" className="relative py-14 sm:py-16">
+      <div className="shell space-y-8">
         <Reveal>
           <SectionHeading
             eyebrow="Technical Skills"
