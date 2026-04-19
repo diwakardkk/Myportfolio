@@ -21,15 +21,15 @@ export function ContactSection({ profile }: ContactSectionProps) {
 
           <div className="mt-8 space-y-4">
             <div className="premium-card rounded-[1.75rem] p-5">
-              <div className="flex items-center gap-3 text-slate-200">
+              <div className="flex min-w-0 items-start gap-3 text-slate-200 sm:items-center">
                 <Mail className="h-4 w-4 text-cyan" />
-                <a href={`mailto:${profile.contact.email}`} className="focus-ring rounded-md text-sm hover:text-white">
+                <a href={`mailto:${profile.contact.email}`} className="focus-ring break-all rounded-md text-sm hover:text-white">
                   {profile.contact.email}
                 </a>
               </div>
             </div>
             <div className="premium-card rounded-[1.75rem] p-5">
-              <div className="flex items-center gap-3 text-slate-200">
+              <div className="flex min-w-0 items-start gap-3 text-slate-200 sm:items-center">
                 <Phone className="h-4 w-4 text-cyan" />
                 <a href={`tel:${profile.contact.phone.replace(/\s+/g, '')}`} className="focus-ring rounded-md text-sm hover:text-white">
                   {profile.contact.phone}
@@ -43,9 +43,9 @@ export function ContactSection({ profile }: ContactSectionProps) {
               </div>
             </div>
             <div className="premium-card rounded-[1.75rem] p-5">
-              <div className="flex items-center gap-3 text-slate-200">
+              <div className="flex min-w-0 items-start gap-3 text-slate-200 sm:items-center">
                 <Linkedin className="h-4 w-4 text-cyan" />
-                <a href={profile.contact.linkedin} target="_blank" rel="noreferrer" className="focus-ring rounded-md text-sm hover:text-white">
+                <a href={profile.contact.linkedin} target="_blank" rel="noreferrer" className="focus-ring break-all rounded-md text-sm hover:text-white">
                   linkedin.com/in/diwakarpro
                 </a>
               </div>
@@ -60,10 +60,10 @@ export function ContactSection({ profile }: ContactSectionProps) {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href={`mailto:${profile.contact.email}`}
-              className="focus-ring inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan to-electric px-5 py-3 text-sm font-semibold text-slate-950"
+              className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan to-electric px-5 py-3 text-sm font-semibold text-slate-950 sm:w-auto"
             >
               Email Me
               <Mail className="h-4 w-4" />
@@ -72,7 +72,7 @@ export function ContactSection({ profile }: ContactSectionProps) {
               href={profile.contact.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="focus-ring inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white"
+              className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white sm:w-auto"
             >
               LinkedIn
               <Linkedin className="h-4 w-4" />
@@ -81,16 +81,16 @@ export function ContactSection({ profile }: ContactSectionProps) {
               href={profile.contact.scholarUrl}
               target="_blank"
               rel="noreferrer"
-              className="focus-ring inline-flex items-center gap-2 rounded-full border border-cyan/25 bg-cyan/10 px-5 py-3 text-sm font-semibold text-cyan"
+              className="focus-ring inline-flex w-full items-center justify-center gap-2 rounded-full border border-cyan/25 bg-cyan/10 px-5 py-3 text-sm font-semibold text-cyan sm:w-auto"
             >
               Google Scholar
               <BookOpenText className="h-4 w-4" />
             </a>
           </div>
-          <div className="mt-10 rounded-[2rem] border border-[#fffffa]/10 bg-[#fffffa]/[0.05] px-6 py-6 text-sm leading-7 text-[#fffffa]/76 shadow-[0_20px_60px_rgba(34,75,195,0.16)]">
+          <div className="mt-10 rounded-[2rem] border border-[#fffffa]/10 bg-[#fffffa]/[0.05] px-5 py-6 text-sm leading-7 text-[#fffffa]/76 shadow-[0_20px_60px_rgba(34,75,195,0.16)] sm:px-6">
             <p>
               For research discussions, postdoctoral roles, and collaboration opportunities, email directly at{' '}
-              <a href={`mailto:${profile.contact.email}`} className="focus-ring font-medium text-cyan hover:text-white">
+              <a href={`mailto:${profile.contact.email}`} className="focus-ring break-all font-medium text-cyan hover:text-white">
                 {profile.contact.email}
               </a>
               .

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { Mail, MapPin, Menu, Phone, School, X } from 'lucide-react';
 
@@ -56,38 +57,50 @@ export function Navbar({ profile }: NavbarProps) {
 
   return (
     <header className="sticky top-0 z-40 px-4 pt-4 sm:px-6 lg:px-8">
-      <div className="mx-auto mb-3 max-w-7xl rounded-full border border-[#fffffa]/10 bg-[#fffffa]/[0.05] px-4 py-2 backdrop-blur-xl">
-        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] font-medium uppercase tracking-[0.18em] text-[#fffffa]/72 lg:justify-between">
-          <a href={`mailto:${profile.contact.email}`} className="focus-ring inline-flex items-center gap-2 rounded-full text-inherit transition hover:text-white">
+      <div className="mx-auto mb-3 max-w-7xl rounded-[1.5rem] border border-[#fffffa]/10 bg-[#fffffa]/[0.05] px-3 py-3 backdrop-blur-xl sm:rounded-full sm:px-4 sm:py-2">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 text-[10px] font-medium uppercase tracking-[0.14em] text-[#fffffa]/72 sm:justify-between sm:text-[11px] sm:tracking-[0.18em]">
+          <a
+            href={`mailto:${profile.contact.email}`}
+            className="focus-ring inline-flex max-w-full min-w-0 items-center gap-2 rounded-full text-inherit transition hover:text-white"
+          >
             <Mail className="h-3.5 w-3.5 text-cyan" />
-            <span>{profile.contact.email}</span>
+            <span className="truncate">{profile.contact.email}</span>
           </a>
-          <a href={`tel:${profile.contact.phone.replace(/\s+/g, '')}`} className="focus-ring inline-flex items-center gap-2 rounded-full text-inherit transition hover:text-white">
+          <a
+            href={`tel:${profile.contact.phone.replace(/\s+/g, '')}`}
+            className="focus-ring inline-flex max-w-full min-w-0 items-center gap-2 rounded-full text-inherit transition hover:text-white"
+          >
             <Phone className="h-3.5 w-3.5 text-cyan" />
-            <span>{profile.contact.phone}</span>
+            <span className="truncate">{profile.contact.phone}</span>
           </a>
-          <div className="inline-flex items-center gap-2">
+          <div className="hidden items-center gap-2 md:inline-flex md:max-w-[26rem]">
             <School className="h-3.5 w-3.5 text-cyan" />
-            <span>{profile.personalInfo.institution}</span>
+            <span className="truncate">{profile.personalInfo.institution}</span>
           </div>
-          <div className="inline-flex items-center gap-2">
+          <div className="inline-flex max-w-full min-w-0 items-center gap-2">
             <MapPin className="h-3.5 w-3.5 text-cyan" />
-            <span>{profile.contact.location}</span>
+            <span className="truncate">{profile.contact.location}</span>
           </div>
         </div>
       </div>
 
       <div
         className={cn(
-          'mx-auto flex max-w-7xl items-center justify-between rounded-full border px-4 py-3 transition duration-300 md:px-5',
+          'mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-[1.75rem] border px-3 py-3 transition duration-300 sm:rounded-full sm:px-4 md:px-5',
           scrolled ? 'glass-panel border-white/12 bg-slate-950/70 shadow-glow' : 'border-white/8 bg-slate-950/40',
         )}
       >
-        <a href="#home" className="focus-ring flex items-center gap-3 rounded-full px-2 py-1 text-sm font-semibold tracking-[0.32em] text-white">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-cyan/30 bg-cyan/10 text-cyan">
-            D
+        <a href="#home" className="focus-ring flex min-w-0 items-center gap-3 rounded-full px-1 py-1 text-sm font-semibold tracking-[0.2em] text-white sm:px-2 sm:tracking-[0.32em]">
+          <span className="relative inline-flex h-10 w-10 shrink-0 overflow-hidden rounded-full border border-cyan/30 bg-cyan/10">
+            <Image
+              src={profile.personalInfo.profileImageUrl}
+              alt={`${profile.personalInfo.name} profile portrait`}
+              fill
+              sizes="40px"
+              className="object-cover"
+            />
           </span>
-          {profile.personalInfo.name}
+          <span className="truncate">{profile.personalInfo.name}</span>
         </a>
 
         <nav className="hidden items-center gap-2 lg:flex" aria-label="Primary navigation">
